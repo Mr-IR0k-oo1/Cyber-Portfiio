@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Professional Portfolio</title>
+ </head>
+<body>
+    <!-- Matrix Background Canvas -->
+    <canvas class="matrix-bg" id="matrix"></canvas>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>CYBERSECURITY SPECIALIST</h1>
+        <p>Protecting Digital Assets | Ethical Hacker | Security Researcher</p>
+        
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot" style="background: #ff5f56;"></div>
+                <div class="terminal-dot" style="background: #ffbd2e;"></div>
+                <div class="terminal-dot" style="background: #27c93f;"></div>
+            </div>
+            <div class="terminal-text">
+                <span style="color: #00ffff;">root@security:~$</span> whoami<br>
+                > Cybersecurity Professional<br>
+                <span style="color: #00ffff;">root@security:~$</span> cat specializations.txt<br>
+                > Web Developer / Security<br>
+                > Network Security<br>
+                > Threat Analysis<br>
+                > Red Teamer<span class="cursor">_</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div style="width: 100%;">
+            <h2 class="section-title">Technical Arsenal</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>🛡️ Penetration Testing</h3>
+                    <ul>
+                        <li>Web Application Testing</li>
+                        <li>Network Penetration Testing</li>
+                        <li>Social Engineering</li>
+                        <li>Exploit Development</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>🔍 Security Tools</h3>
+                    <ul>
+                        <li>Metasploit, Burp Suite</li>
+                        <li>Wireshark, Nmap</li>
+                        <li>Kali Linux, Arch Linux</li>
+                        <li>OWASP ZAP, SQLMap</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>💻 Programming</h3>
+                    <ul>
+                        <li>C / C++</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Solidity</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>🔐 Security Domains</h3>
+                    <ul>
+                        <li>Vulnerability Assessment</li>
+                        <li>Incident Response</li>
+                        <li>Web Security</li>
+                        <li>Digital Forensics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div style="width: 100%;">
+            <h2 class="section-title">Security Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <h3>Network Vulnerability Scanner</h3>
+                    <p>Automated tool for discovering security vulnerabilities in network infrastructure. Scans for open ports, outdated services, and common misconfigurations.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Nmap</span>
+                        <span class="tag">Automation</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Web Application Security Testing</h3>
+                    <p>Comprehensive security assessment of web applications identifying SQL injection, XSS, CSRF vulnerabilities and implementing secure coding practices.</p>
+                    <div class="project-tags">
+                        <span class="tag">OWASP</span>
+                        <span class="tag">Burp Suite</span>
+                        <span class="tag">Pentesting</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Malware Analysis Lab</h3>
+                    <p>Built isolated environment for analyzing malicious software behavior, reverse engineering malware samples, and documenting attack patterns.</p>
+                    <div class="project-tags">
+                        <span class="tag">Forensics</span>
+                        <span class="tag">Reverse Engineering</span>
+                        <span class="tag">IDA Pro</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Security Monitoring Dashboard</h3>
+                    <p>Real-time security monitoring system integrating SIEM tools to detect and alert on potential security incidents and anomalous behavior.</p>
+                    <div class="project-tags">
+                        <span class="tag">SIEM</span>
+                        <span class="tag">ELK Stack</span>
+                        <span class="tag">Monitoring</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div style="width: 100%;">
+            <h2 class="section-title">Get In Touch</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // ===== MATRIX RAIN EFFECT =====
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*()_+-=[]{}|;:,.<>?/~`アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                
+                const brightness = Math.random();
+                if (brightness > 0.95) {
+                    ctx.fillStyle = '#ffffff';
+                } else if (brightness > 0.8) {
+                    ctx.fillStyle = '#00ff9d';
+                } else if (brightness > 0.5) {
+                    ctx.fillStyle = '#00cc7a';
+                } else {
+                    ctx.fillStyle = '#008855';
+                }
+                
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 40);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const newColumns = canvas.width / fontSize;
+            drops.length = Math.floor(newColumns);
+            for (let i = 0; i < drops.length; i++) {
+                if (drops[i] === undefined) {
+                    drops[i] = Math.floor(Math.random() * canvas.height / fontSize);
+                }
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            console.log('Form Data:', { name, email, message });
+            alert('Message sent! This is a demo - connect it to your backend.');
+        });
+    </script>
+</body>
+</html>
