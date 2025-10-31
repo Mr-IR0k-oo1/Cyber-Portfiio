@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cybersecurity Professional Portfolio</title>
+    <meta name="description" content="Professional cybersecurity portfolio showcasing expertise in penetration testing, security tools, and threat analysis.">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
  </head>
 <body>
     <!-- Matrix Background Canvas -->
@@ -12,6 +15,9 @@
     
     <!-- Navigation -->
     <nav>
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -49,7 +55,7 @@
             <h2 class="section-title">Technical Arsenal</h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h3>🛡️ Penetration Testing</h3>
+                    <h3><i class="fas fa-shield-alt"></i> Penetration Testing</h3>
                     <ul>
                         <li>Web Application Testing</li>
                         <li>Network Penetration Testing</li>
@@ -58,7 +64,7 @@
                     </ul>
                 </div>
                 <div class="skill-card">
-                    <h3>🔍 Security Tools</h3>
+                    <h3><i class="fas fa-search"></i> Security Tools</h3>
                     <ul>
                         <li>Metasploit, Burp Suite</li>
                         <li>Wireshark, Nmap</li>
@@ -67,7 +73,7 @@
                     </ul>
                 </div>
                 <div class="skill-card">
-                    <h3>💻 Programming</h3>
+                    <h3><i class="fas fa-code"></i> Programming</h3>
                     <ul>
                         <li>C / C++</li>
                         <li>HTML5</li>
@@ -77,7 +83,7 @@
                     </ul>
                 </div>
                 <div class="skill-card">
-                    <h3>🔐 Security Domains</h3>
+                    <h3><i class="fas fa-lock"></i> Security Domains</h3>
                     <ul>
                         <li>Vulnerability Assessment</li>
                         <li>Incident Response</li>
@@ -95,7 +101,7 @@
             <h2 class="section-title">Security Projects</h2>
             <div class="projects-container">
                 <div class="project-card">
-                    <h3>Network Vulnerability Scanner</h3>
+                    <h3><i class="fas fa-network-wired"></i> Network Vulnerability Scanner</h3>
                     <p>Automated tool for discovering security vulnerabilities in network infrastructure. Scans for open ports, outdated services, and common misconfigurations.</p>
                     <div class="project-tags">
                         <span class="tag">Python</span>
@@ -104,7 +110,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3>Web Application Security Testing</h3>
+                    <h3><i class="fas fa-globe"></i> Web Application Security Testing</h3>
                     <p>Comprehensive security assessment of web applications identifying SQL injection, XSS, CSRF vulnerabilities and implementing secure coding practices.</p>
                     <div class="project-tags">
                         <span class="tag">OWASP</span>
@@ -113,7 +119,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3>Malware Analysis Lab</h3>
+                    <h3><i class="fas fa-microscope"></i> Malware Analysis Lab</h3>
                     <p>Built isolated environment for analyzing malicious software behavior, reverse engineering malware samples, and documenting attack patterns.</p>
                     <div class="project-tags">
                         <span class="tag">Forensics</span>
@@ -122,7 +128,7 @@
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3>Security Monitoring Dashboard</h3>
+                    <h3><i class="fas fa-chart-line"></i> Security Monitoring Dashboard</h3>
                     <p>Real-time security monitoring system integrating SIEM tools to detect and alert on potential security incidents and anomalous behavior.</p>
                     <div class="project-tags">
                         <span class="tag">SIEM</span>
@@ -155,6 +161,19 @@
             </form>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Cybersecurity Professional. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:contact@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // ===== MATRIX RAIN EFFECT =====
