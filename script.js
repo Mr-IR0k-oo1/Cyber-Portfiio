@@ -98,20 +98,135 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// ===== TYPING EFFECT =====
+// Enhanced typing effect to simulate terminal behavior
+function typeWriter(element, lines, charSpeed = 50, lineDelay = 1000) {
+    let lineIndex = 0;
+    let charIndex = 0;
+    element.innerHTML = '';
+
+    function type() {
+        if (lineIndex < lines.length) {
+            const currentLine = lines[lineIndex];
+            if (charIndex < currentLine.length) {
+                // Type next character
+                element.innerHTML += currentLine.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, charSpeed);
+            } else {
+                // Move to next line
+                element.innerHTML += '<br>';
+                lineIndex++;
+                charIndex = 0;
+                setTimeout(type, lineDelay);
+            }
+        } else {
+            // Add blinking cursor at the end
+            element.innerHTML += '<span class="cursor">_</span>';
+        }
+    }
+    type();
+}
+
+// Initialize typing effect on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const terminalText = document.querySelector('.terminal-text');
+    // Extract text content, preserving line breaks
+    const textContent = terminalText.textContent || terminalText.innerText;
+    const lines = textContent.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    terminalText.innerHTML = '';
+    typeWriter(terminalText, lines, 30, 800);
+});
+
+// ===== SCROLL-TRIGGERED ANIMATIONS =====
+// Add fade-in animation when sections come into view
+function animateOnScroll() {
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+}
+
+// Initialize scroll animations
+document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+// ===== FORM VALIDATION =====
+// Dynamic form validation
+function validateForm() {
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+    let isValid = true;
+
+    // Name validation
+    if (name.value.trim().length < 2) {
+        showError(name, 'Name must be at least 2 characters');
+        isValid = false;
+    } else {
+        clearError(name);
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value)) {
+        showError(email, 'Please enter a valid email');
+        isValid = false;
+    } else {
+        clearError(email);
+    }
+
+    // Message validation
+    if (message.value.trim().length < 10) {
+        showError(message, 'Message must be at least 10 characters');
+        isValid = false;
+    } else {
+        clearError(message);
+    }
+
+    return isValid;
+}
+
+function showError(input, message) {
+    const formGroup = input.parentElement;
+    let error = formGroup.querySelector('.error-message');
+    if (!error) {
+        error = document.createElement('div');
+        error.className = 'error-message';
+        formGroup.appendChild(error);
+    }
+    error.textContent = message;
+    input.classList.add('error');
+}
+
+function clearError(input) {
+    const formGroup = input.parentElement;
+    const error = formGroup.querySelector('.error-message');
+    if (error) error.remove();
+    input.classList.remove('error');
+}
+
 // ===== FORM SUBMISSION =====
-// Handle contact form submission
+// Handle contact form submission with validation
 document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    // For demo purposes - replace with actual backend submission
-    console.log('Form Data:', { name, email, message });
-    alert('Message sent! This is a demo - connect it to your backend to make it functional.');
-    
-    // Optional: Clear form after submission
-    // e.target.reset();
+
+    if (validateForm()) {
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // For demo purposes - replace with actual backend submission
+        console.log('Form Data:', { name, email, message });
+        alert('Message sent! This is a demo - connect it to your backend to make it functional.');
+
+        // Clear form after submission
+        e.target.reset();
+    }
 });
